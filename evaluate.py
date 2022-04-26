@@ -72,7 +72,7 @@ def constructFeatureSets(features):
 
 
 def readDataSet(filepath, pos):
-    with open(filepath, 'r') as f:
+    with open(filepath, 'r', encoding = 'utf-8') as f:
         ds_lines = f.read().split('\n')
     dataset = {}
     for i in range(len(ds_lines)):
@@ -145,7 +145,7 @@ def main(args):
     um_dataset = readDataSet(args.unimorph, args.pos)
     ud_dataset = readDataSet(args.gold, args.pos)
     overall_stats, log = evaluate(ud_dataset, um_dataset, args.log)
-    print_numbers(overall_stats)
+    print_numbers(overall_stats, log)
 
 if __name__ == "__main__":
     import argparse
@@ -153,6 +153,6 @@ if __name__ == "__main__":
     parser.add_argument("--gold", help="Gold Treebank", required=True, type=str)
     parser.add_argument("--unimorph", help="Unimorph file", required=True, type=str)
     parser.add_argument("--pos", help="V or N or ADJ", required=False, type=str)
-    parser.add_argument("--log", help="True of False", required=True, type=bool)
+    parser.add_argument("--log", help="True of False", required=False, type=bool)
     opt = parser.parse_args()
     main(opt)
