@@ -159,6 +159,6 @@ if __name__ == "__main__":
     parser.add_argument("--gold", help="Gold Treebank", required=True, type=str)
     parser.add_argument("--unimorph", help="Unimorph file", required=True, type=str)
     parser.add_argument("--pos", help="V or N or ADJ", required=False, type=str)
-    parser.add_argument("--log", help="True of False", required=False, type=bool)
+    parser.add_argument("--log", help="Printing incorretness details", action="store_true")
     opt = parser.parse_args()
     main(opt)
