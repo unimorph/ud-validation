@@ -99,8 +99,14 @@ def findCorePOS(um_set):
     return 'n.a'
 
 def print_numbers(stats_dict, log):
+    if len(log) > 1:
+        print('----- incorrectness details -----')
+        for key in log:
+            print(key.split('_')[0],key.split('_')[1],log[key])
+        print('---------------------------------')
     for stat_name, stat in sorted(stats_dict.items()):
         print("\t".join([stat_name, "{:.2f}".format(stat)]))
+
 
 def evaluate(ud_dataset, um_dataset, log):
     total, cov_ct, pr_ct  = 1.0, 1.0, .0
