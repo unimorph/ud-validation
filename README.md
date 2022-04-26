@@ -2,7 +2,9 @@
 This tool can be used to validate UniMorph data on Treebanks of Universal Dependencies. 
 
 ## Usage
-To validate _one_ UniMorph file on a file of Universal Dependencies, you run `evaluate.py` as follows:
+Before using this tool, we need to convert the Universal Dependencies files to UniMorph schema by using (`ud-compatibility`)[https://github.com/unimorph/ud-compatibility] tool.
+To validate _one_ UniMorph file on a _converted file_ of Universal Dependencies, you run `evaluate.py` as follows: 
+
 
 ```
 python evaluate.py --unimorph um\eng-um4 --gold ud\en_ud.tsv
